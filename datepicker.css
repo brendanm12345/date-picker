@@ -1,0 +1,24 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.weekRow {
+    flex-direction: row;
+    background-color: antiquewhite;
+}
+
+.dayCell {
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(184, 184, 255);
+}
+.not-current-month {
+    color: gray;
+}
+
+.month-year-header {
+    font-size: 24px;
+}
