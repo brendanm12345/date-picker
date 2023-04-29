@@ -72,7 +72,9 @@ class DatePicker {
     const monthYearHeader = document.createElement("span");
     monthYearHeader.className = "month-year-header";
     monthYearHeader.textContent =
-      monthNames[this.currentDate.getMonth()] + " " + this.currentDate.getFullYear();
+      monthNames[this.currentDate.getMonth()] +
+      " " +
+      this.currentDate.getFullYear();
     datePickerHeader.appendChild(monthYearHeader);
 
     const prevButton = document.createElement("button");
@@ -101,9 +103,6 @@ class DatePicker {
       headerRow.appendChild(headerCell);
     }
 
-
-    // new method
-
     const month = this.currentDate.getMonth();
     const year = this.currentDate.getFullYear();
     const firstDay = new Date(year, month, 1);
@@ -124,13 +123,10 @@ class DatePicker {
       for (let j = 0; j < 7; j++) {
         const dayCell = document.createElement("td");
         dayCell.className = "dayCell";
-
         if (i === 0 && j < firstWeekday) {
           // add previous month
           dayCell.innerHTML = numDaysInPrevMonth - firstWeekday + j + 1;
           dayCell.classList.add("not-current-month");
-          // new Date(year, month - 1, numDaysInPrevMonth - firstWeekday + j + 1)
-          // week.push(new Date(year, month - 1, numDaysInPrevMonth - firstWeekday + j + 1))
         } else if (currentDay > numDaysInMonth) {
           if (j === 0) {
             break;
@@ -140,30 +136,13 @@ class DatePicker {
           nextMonthDay++;
         } else {
           dayCell.innerHTML = currentDay;
-          // dayCell.addEventListener("click", alert("hi"));
           if (currentDay === this.currentDate.getDate()) {
             dayCell.classList.add("current-day");
           }
-
           currentDay++;
-          // this.callback(this.id, {month: this.currentDate.getMonth(),
-          // day: currentDay, year: this.currentDate.getYear()})
         }
         weekRow.appendChild(dayCell);
       }
-      //const cells = weekRow.getElementsByTagName("td");
-      //const firstCell = cells[0];
-      //const lastCell = cells[6];
-
-      //const prevCell = weekRow.previousElementSibling?.querySelector('td:first-child');
-
-      //const prevFirstCell = prevRow.getElementsByTagName('td')[0];
-      //   console.log(firstCell.textContent + " " + lastCell.textContent);
-      //   if (+firstCell.textContent - +lastCell.textContent < 6 &&) {
-      //     console.log("INSIDE");
-      //     table.removeChild(weekRow);
-      //   }
     }
   }
-  
 }
